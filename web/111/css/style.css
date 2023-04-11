@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+/* reset */
+li {
+    /* 블릿문자삭제 */
+    list-style: none;
+}
+
+a { /* a태그는 태어날 때 부터 파란색,밑줄로 태어남 
+    -> 글자색, 밑줄 삭제*/
+    color: #333;
+    text-decoration: none; 
+}
+
+/* warp */
+
+#warp {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+/* header */
+#header{}
+#header h1{float: left;}
+#header .nav{float: right;}
+#header .nav ul{}
+#header .nav ul li{float: left;}
