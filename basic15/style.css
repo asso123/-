@@ -1,0 +1,142 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: lightgray;
+}
+
+.box1 {
+    background-color: #fff;
+}
+
+.box1 .child {
+    font-size: 30px;
+    font-weight: bold;
+    width: 300px;
+    background-color: pink;
+    margin: 30px auto;
+    /* //마진 병합현상 */
+    text-align: center;
+    border: 10px solid pink;
+    border-radius: 10px;
+    /* transition-property: transform;
+    transition-duration: 0.3s;
+    transition-delay: 0.5s;
+    transition-timing-function: cubic-bezier(1,-0.47, 0.5, 1.47);
+    transition-timing-function: ease ->이게 기본값!*/
+    /* transition:transform 0.3s cubic-bezier(1,-0.47, 0.5, 1.47) 0.5s; */
+
+    /* transition:transform 0.3s, background-color 0.5s, color 1.3 0.5s; */
+
+    /* transition: all 0.3s;
+ transition: 0.3s; 
+ all 안적어도 됨! */
+}
+
+.box1 .child:hover {
+    transform: translateY(-30px);
+    background-color: hotpink;
+    color: pink;
+}
+
+.box2 {
+    width: 400px;
+    font-size: 30px;
+    margin: 0 auto;
+    text-align: center;
+    color: #222;
+    background-color: lightcyan;
+    overflow: hidden;
+}
+
+.box2 div {
+    transform: translateX(-100%);
+    transition: 0.5s ease;
+}
+
+.box2:hover>div {
+    transform: translateX(0);
+}
+
+.box2 .one {
+    transition-delay: 0.3s;
+}
+
+.box2 .two {
+    transition-delay: 0.6s;
+}
+
+.box2 .three {
+    transition-delay: 0.9s;
+}
+
+.box3 {
+    width: 100px;
+    background-color: beige;
+    text-align: center;
+    line-height: 100px;
+    animation-name: box_ani;
+    /* ->애니메이션 이름 keyframes의 이름과 동일해야함 */
+    animation-duration: 1s;
+    /* ->애니메이션 움직이는 지속 시간 (s 초) */
+    animation-iteration-count: 2;
+    /* ->애니메이션 반복횟수 ex) 3(3회) infinite(무한반복) */
+    animation-direction: alternate;
+    /* ->애니메이션의 방향 
+    nomal 기본값
+    alternate 정방향-역방향-정방향
+    alternate-reverse 역방향->정방향->역방향 
+    reverse 역방향*/
+
+    animation-delay: 1s;
+    /* 애니메이션 지연시간 */
+    animation-timing-function: ease;
+    /* 애니메이션 가속도 */
+animation-fill-mode:forwards + backwards;
+/* 애니메이션의 시작전과 끝후의 상태조절
+forwards 애니가 끝난상태에서 멈춤
+backwards 애니가 시작을 keyframes의 0%인 상태에서 시작
+both = forwards + backwards */
+}
+
+/* 애니메이션움직임 제어 */
+@keyframes box_ani {
+
+    /* 시작지점 */
+    from {
+        margin-left: 300px;
+    }
+
+    /* 도착지점 */
+    to {
+        margin-left: 800px;
+    }
+}
+
+.box4 {
+    width: 100px;
+    background-color: rgb(198, 235, 206);
+    text-align: center;
+    line-height: 100px;
+/*  animation-name: box_ani2;
+animation-duration: 4s;
+animation-timing-function: ease-in-out;
+animation-delay: 1s;
+animation-iteration-count: 3;
+animation-fill-mode: both; */
+
+/* animation: name duration timing-function delay iteration-count direction fill-mode; */
+
+animation: box_ani2 4s ease-in-out 1s 3
+
+    @keyframes box_ani2{
+        0%{transform: translate(0px,0px);}
+        25%{transform: translate(200px,0px);}
+        50%{transform: translate(200px,200px);}
+        75%{transform: translate(0px,200px);}
+        100%{transform: translate(0px,0px);}
+    }
