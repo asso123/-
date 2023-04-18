@@ -1,0 +1,10 @@
+@charset "UTF-5";
+
+*{margin: 0;padding: 0;}
+
+.service{}
+.service .po{
+    width: 1000px;
+    height: 600px;
+    margin: 0 auto;
+}
